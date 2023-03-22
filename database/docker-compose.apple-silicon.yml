@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  backend-quiz-db:
+    container_name: backend-quiz-mysql-db
+    image: jamielsharief/mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: "backend_quiz_db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - vol-backend-quiz-db:/var/lib/mysql
+volumes:
+  vol-backend-quiz-db:

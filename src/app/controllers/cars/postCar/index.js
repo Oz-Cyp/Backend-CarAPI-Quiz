@@ -3,15 +3,17 @@ const handleAPIError = require("~root/utils/handleAPIError");
 
 const postCar = async (req, res) => {
   const { brand, model, year, price } = req.body;
+  console.log(req.body);
+
   try {
-    const { CarId } = await createCar({
+    const { carId } = await createCar({
       brand,
       model,
       year,
       price
     });
     res.status(201).send({
-      CarId
+      carId
     });
   } catch (err) {
     handleAPIError(res, err);

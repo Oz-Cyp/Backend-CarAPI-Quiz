@@ -47,17 +47,19 @@ CREATE TABLE customers(
 DROP TABLE IF EXISTS cars;
 CREATE TABLE cars(
   car_id int AUTO_INCREMENT PRIMARY KEY,
+  image_url VARCHAR(500),
   brand VARCHAR(50) NOT NULL,
   model VARCHAR(50) NOT NULL,
-  price int NOT NULL,
-  year int NOT NULL
+  year INT NOT NULL,
+  price VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS sales;
 CREATE TABLE sales(
-  sales_id int AUTO_INCREMENT PRIMARY KEY,
-  customer_id int,
-  car_id int,
-  FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
-  FOREIGN KEY (car_id) REFERENCES cars(car_id)
+	sales_id int AUTO_INCREMENT PRIMARY KEY,
+	car_id INT,
+	customer_id INT,
+  saledate DATE NOT NULL,
+	FOREIGN KEY (car_id) REFERENCES cars(car_id),
+	FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;

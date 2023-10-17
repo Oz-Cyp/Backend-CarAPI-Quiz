@@ -5,7 +5,7 @@ const getCars = async(req, res) => {
     try {
         const{cars} = await fetchCars ({
         });
-        res.status(201).send({
+        res.status(200).send({
             cars
         });
     } catch (err) {

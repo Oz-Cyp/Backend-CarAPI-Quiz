@@ -33,6 +33,10 @@ const router = require("./routes");
 
 app.use(router);
 
-app.listen(port, () => monitoring.log(`API listening on port ${port}!`));
+app.get("/getData", (req,res) =>{
+  res.send("hello")
+}) // sonradan eklendi
+
+app.listen({port}, () => monitoring.log(`${port}`));
 
 module.exports = app;

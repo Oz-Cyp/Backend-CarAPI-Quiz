@@ -22,6 +22,7 @@ const postSale = require("./controllers/sales/postSale");
 const deleteCustomerById = require("./controllers/customers/deleteCustomerById");
 const deleteCarById = require("./controllers/cars/deleteCarById");
 const deleteSaleById = require("./controllers/sales/deleteSaleById");
+const getProxy = require("./controllers/proxy/getProxy");
 const router = express.Router();
 
 // USER MANAGEMENT
@@ -35,6 +36,10 @@ router.post(
 router.put("/edit/user", authentication, putUserDetails);
 
 router.get("/user-types", getUserTypes);
+
+// PROXY Endpoints
+
+router.get("/proxy", getProxy);
 
 // CUSTOMER Endpoints
 

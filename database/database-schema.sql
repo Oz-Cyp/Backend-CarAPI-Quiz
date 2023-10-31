@@ -37,15 +37,8 @@ CREATE TABLE users(
   FOREIGN KEY (user_type_id) REFERENCES user_types(user_type_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-DROP TABLE IF EXISTS customers;
-CREATE TABLE customers(
-  customer_id int AUTO_INCREMENT PRIMARY KEY,
-  first_name VARCHAR(50) NOT NULL,
-  last_name VARCHAR(50) NOT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
-
 DROP TABLE IF EXISTS cars;
-CREATE TABLE cars(
+CREATE TABLE cars (
   car_id int AUTO_INCREMENT PRIMARY KEY,
   image_url VARCHAR(500),
   brand VARCHAR(50) NOT NULL,
@@ -54,12 +47,32 @@ CREATE TABLE cars(
   price VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+DROP TABLE IF EXISTS customers;
+CREATE TABLE customers (
+  customer_id int AUTO_INCREMENT PRIMARY KEY,
+  car_id INT,
+  sales_id INT,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  phone_number VARCHAR(50) NOT NULL,
+  FOREIGN KEY (car_id) REFERENCES cars(car_id),
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 DROP TABLE IF EXISTS sales;
-CREATE TABLE sales(
-	sales_id int AUTO_INCREMENT PRIMARY KEY,
-	car_id INT,
-	customer_id INT,
+CREATE TABLE sales (
+  sales_id int AUTO_INCREMENT PRIMARY KEY,
+  car_id INT,
+  customer_id INT,
   saledate DATE NOT NULL,
-	FOREIGN KEY (car_id) REFERENCES cars(car_id),
-	FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+  FOREIGN KEY (car_id) REFERENCES cars(car_id),
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS proxy;
+CREATE TABLE proxy (
+  proxy_id int AUTO_INCREMENT PRIMARY KEY,
+  FOREIGN KEY (car_id) REFERENCES cars(car_id),
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+  FOREIGN KEY (cales_id) REFERENCES sales(sales_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;

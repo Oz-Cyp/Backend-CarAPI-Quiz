@@ -9,7 +9,9 @@ const {
 const updateCustomerById = ({
   customerId,
   firstName = null,
-  lastName = null
+  lastName = null,
+  email = null,
+  phone_number = null
 }) => {
   const updates = [];
   if (firstName !== null) {

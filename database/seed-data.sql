@@ -23,7 +23,6 @@ VALUES (2, "Joe", "Bloggs","joebloggs@gmail.com", SHA2(CONCAT("password","SUPER_
 INSERT INTO users (user_id, first_name, last_name, email, password, user_type_id, created_at)
 VALUES (3, "Jim", "Bloggs" , "jimbloggs@yahoo.com", SHA2(CONCAT("password","SUPER_DUPER_SECRET"), 224), 2, "2020-11-20 12:00:00");
 
-
 INSERT INTO cars (car_id, image_url, brand, model, year, price)
 VALUES (1, "https://s.car.info/image_files/360/0-1147370.jpg", "Toyota", "Vitz", "2013", "10000$");
 INSERT INTO cars (car_id, image_url, brand,  model, year, price)
@@ -37,17 +36,16 @@ VALUES (5, "https://www.topgear.com/sites/default/files/images/news-article/2021
 INSERT INTO cars (car_id, image_url, brand,  model, year, price)
 VALUES (6, "https://paultan.org/image/2019/12/Bugatti-Chiron-Noire-Matte-e1575339652545.jpg","Bugatti", "Chiron", "2020","500000$");
 
-INSERT INTO customers (customer_id, car_id, first_name, last_name, email, phone_number)
-VALUES (1,1, "Ozun", "Gulle", "ozungulle@hotmail.com", "007834611");
-INSERT INTO customers (customer_id, car_id,sales_id, first_name, last_name, email, phone_number)
-VALUES (2,2, "Ozan", "Gulle", "ozangulle@hotmail.com", "007463261");
-INSERT INTO customers (customer_id, car_id,sales_id, first_name, last_name, email, phone_number)
-VALUES (3,3, "Ersel", "Aker", "erselfaker@hotmail.com", "007321631");
-INSERT INTO customers (customer_id, car_id,sales_id, first_name, last_name, email, phone_number)
-VALUES (4,4, "Kemal", "Akyigit","kemalakyigit@hotmail.com", "003200113");
-INSERT INTO customers (customer_id, car_id,sales_id, first_name, last_name, email, phone_number)
-VALUES (5,5, "Ahmet", "Akinsel", "ahmetakinsel@hotmail.com", "008321617");
-
+INSERT INTO customers (customer_id, first_name, last_name, email, phone_number)
+VALUES (1, "Ozun", "Gulle", "ozungulle@hotmail.com", "007834611");
+INSERT INTO customers (customer_id, first_name, last_name, email, phone_number)
+VALUES (2, "Ozan", "Gulle", "ozangulle@hotmail.com", "007463261");
+INSERT INTO customers (customer_id, first_name, last_name, email, phone_number)
+VALUES (3, "Ersel", "Aker", "erselfaker@hotmail.com", "007321631");
+INSERT INTO customers (customer_id, first_name, last_name, email, phone_number)
+VALUES (4, "Kemal", "Akyigit","kemalakyigit@hotmail.com", "003200113");
+INSERT INTO customers (customer_id, first_name, last_name, email, phone_number)
+VALUES (5, "Ahmet", "Akinsel", "ahmetakinsel@hotmail.com", "008321617");
 
 INSERT INTO sales (sales_id, car_id, customer_id, saledate)
 VALUES (1, 1, 1, '2022-04-23');
@@ -60,5 +58,14 @@ VALUES (4, 4, 4, '2022-07-11');
 INSERT INTO sales (sales_id, car_id, customer_id, saledate)
 VALUES (5, 5, 5, '2023-09-05');
 
-INSERT INTO proxy (customer_id,)
+INSERT INTO proxy (proxy_id,  car_id, customer_id, sales_id)
+VALUES (1,1,1,1);
+INSERT INTO proxy (proxy_id,  car_id, customer_id, sales_id)
+VALUES (2,2,2,2);
+INSERT INTO proxy (proxy_id,  car_id, customer_id, sales_id)
+VALUES (3,3,3,3);
+INSERT INTO proxy (proxy_id,  car_id, customer_id, sales_id)
+VALUES (4,4,4,4);
+INSERT INTO proxy (proxy_id,  car_id, customer_id, sales_id)
+VALUES (5,5,5,5);
 

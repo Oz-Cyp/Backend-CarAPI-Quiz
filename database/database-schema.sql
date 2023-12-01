@@ -50,13 +50,10 @@ CREATE TABLE cars (
 DROP TABLE IF EXISTS customers;
 CREATE TABLE customers (
   customer_id int AUTO_INCREMENT PRIMARY KEY,
-  car_id INT,
-  sales_id INT,
   first_name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
-  phone_number VARCHAR(50) NOT NULL,
-  FOREIGN KEY (car_id) REFERENCES cars(car_id),
+  phone_number VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS sales;
@@ -72,7 +69,10 @@ CREATE TABLE sales (
 DROP TABLE IF EXISTS proxy;
 CREATE TABLE proxy (
   proxy_id int AUTO_INCREMENT PRIMARY KEY,
+  car_id INT,
+  customer_id INT,
+  sales_id INT,
   FOREIGN KEY (car_id) REFERENCES cars(car_id),
-  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
-  FOREIGN KEY (cales_id) REFERENCES sales(sales_id)
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+  FOREIGN KEY (sales_id) REFERENCES sales(sales_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
